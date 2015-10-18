@@ -1,0 +1,29 @@
+package kr.dsuplex.haruengine;
+
+import java.util.Random;
+
+import javax.microedition.khronos.opengles.GL10;
+
+import android.content.Context;
+import bayaba.engine.lib.GameInfo;
+
+public abstract class GameMain
+{
+	public GL10 mGL = null; // OpenGL 객체
+	public Context MainContext;
+	public Random MyRand = new Random(); // 랜덤 발생기
+	public GameInfo gInfo; // 게임 환경 설정용 클래스 : MainActivity에 선언된 것을 전달 받는다.
+	public float TouchX, TouchY;
+	
+	public GameMain( Context context, GameInfo info ) // 클래스 생성자 (메인 액티비티에서 호출)
+	{
+		MainContext = context; // 메인 컨텍스트를 변수에 보관한다.
+		gInfo = info; // 메인 액티비티에서 생성된 클래스를 가져온다.
+		
+		created();
+	}
+	public abstract void created();
+	public abstract void LoadGameData(); // SurfaceClass에서 OpenGL이 초기화되면 최초로 호출되는 함수    	
+	public abstract void PushButton( boolean push ); // OpenGL 화면에 터치가 발생하면 GLView에서 호출된다.    	
+	public abstract void DoGame(); // 1/60초에 한번씩 SurfaceClass에서 호출된다. 게임의 코어 부분을 넣는다.
+}
