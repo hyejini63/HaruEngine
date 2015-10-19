@@ -37,6 +37,6 @@ public class ImagePlate extends Plate {
 
 	@Override
 	public void print(GL10 gl) {
-		texture.DrawTexture(gl, posX, posY, 0, 0, width, height, 0, 0, angle, scaleX, scaleY);
+		texture.DrawTexture(gl, posX+width, posY+height, 0, 0, width, height, -width/2, -height/2, angle, scaleX, scaleY);
 	}
 }
