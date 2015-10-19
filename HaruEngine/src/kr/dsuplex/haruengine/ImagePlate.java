@@ -9,6 +9,7 @@ public class ImagePlate extends Plate {
 
 	public float angle = 0;	
 	public Texture texture = new Texture();
+	public float scaleX = 1f, scaleY = 1f;
 	
 	public void setTexture(Texture newTexture) {
 		texture = newTexture;
@@ -22,13 +23,20 @@ public class ImagePlate extends Plate {
 		height = texture.imgHeight;
 	}
 	
+	public void setAntiAliasing(boolean enable) {
+		texture.Antialiasing = enable;
+	}
+	
+	public void setScale(float scale) {
+		scaleX = scaleY = scale;
+	}
+	
 	public void setAngle(float newAngle) {
 		this.angle = newAngle;
 	}
 
 	@Override
 	public void print(GL10 gl) {
-		super.print(gl);
-		texture.DrawTexture(gl, posX, posY, 0, 0, width, height, 0, 0, angle, 1f, 1f);
+		texture.DrawTexture(gl, posX, posY, 0, 0, width, height, 0, 0, angle, scaleX, scaleY);
 	}
 }
