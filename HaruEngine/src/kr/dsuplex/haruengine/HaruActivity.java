@@ -1,9 +1,5 @@
 package kr.dsuplex.haruengine;
 
-import java.util.Random;
-
-import javax.microedition.khronos.opengles.GL10;
-
 import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;

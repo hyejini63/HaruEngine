@@ -7,19 +7,17 @@ import bayaba.engine.lib.Texture;
 
 public class ImagePlate extends Plate {
 
-	public float angle = 0;
-	@Override
-	public void print(GL10 gl) {
-		super.print(gl);
-
-		//texture.DrawTexture(gl, posX, posY, 1f, 1f);
-		texture.DrawTexture(gl, posX, posY, 0, 0, width, height, 0, 0, angle, 1f, 1f);
+	public float angle = 0;	
+	public Texture texture = new Texture();
+	
+	public void setTexture(Texture newTexture) {
+		texture = newTexture;
+		width = texture.imgWidth;
+		height = texture.imgHeight;
 	}
 	
-	public Texture texture;
-	public void setTexture(GL10 gl, Context context){
-		texture = new Texture();
-		texture.LoadTexture(gl, context, "face.png");
+	public void setTexture(GL10 gl, Context context, String filename) {
+		texture.LoadTexture(gl, context, filename);
 		width = texture.imgWidth;
 		height = texture.imgHeight;
 	}
@@ -27,5 +25,10 @@ public class ImagePlate extends Plate {
 	public void setAngle(float newAngle) {
 		this.angle = newAngle;
 	}
-	
+
+	@Override
+	public void print(GL10 gl) {
+		super.print(gl);
+		texture.DrawTexture(gl, posX, posY, 0, 0, width, height, 0, 0, angle, 1f, 1f);
+	}
 }
