@@ -24,6 +24,11 @@ public class Plate {
 		posY = y;
 	}
 	
+	public void setSize(float w, float h) {
+		width = w;
+		height = h;
+	}
+	
 	/**
 	 * 
 	 * @param touch : 터치에 반응할지 여부, false인 경우 터치해도 터치관련 메소드에 반응하지 않음
