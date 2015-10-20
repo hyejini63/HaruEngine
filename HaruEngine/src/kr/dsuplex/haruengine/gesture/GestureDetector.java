@@ -4,7 +4,7 @@ import android.os.Handler;
 
 public abstract class GestureDetector {
 	
-	private static final int LONG_CLICK_TIME = 400; //롱터치로 인식할 시간, 밀리초 단위
+	private static final int LONG_CLICK_TIME = 800; //롱터치로 인식할 시간, 밀리초 단위
 	private static final int CLICK_OR_DRAG_DISTANCE = 15; //눌렀다 뗀 픽셀 단위
 
 	public static final int TOUCH_NONE = 0;

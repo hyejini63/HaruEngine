@@ -11,6 +11,8 @@ public class ImagePlate extends Plate {
 	public Texture texture = new Texture();
 	public float scaleX = 1f, scaleY = 1f;
 	
+	public float halfWidth, halfHeight;
+	
 	public void setTexture(Texture newTexture) {
 		texture = newTexture;
 		width = texture.imgWidth;
@@ -37,6 +39,6 @@ public class ImagePlate extends Plate {
 
 	@Override
 	public void print(GL10 gl) {
-		texture.DrawTexture(gl, posX+width, posY+height, 0, 0, width, height, -width/2, -height/2, angle, scaleX, scaleY);
+		texture.DrawTexture(gl, posX+(width/2), posY+(height/2), 0, 0, width, height, -width/2, -height/2, angle, scaleX, scaleY);
 	}
 }
