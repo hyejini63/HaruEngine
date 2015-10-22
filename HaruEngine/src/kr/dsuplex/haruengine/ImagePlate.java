@@ -36,6 +36,10 @@ public class ImagePlate extends Plate {
 	public void setAngle(float newAngle) {
 		this.angle = newAngle;
 	}
+	
+	public void release() {
+		texture.Release();
+	}
 
 	@Override
 	public void print(GL10 gl) {
