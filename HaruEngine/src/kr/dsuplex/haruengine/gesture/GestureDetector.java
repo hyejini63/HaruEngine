@@ -16,7 +16,7 @@ public abstract class GestureDetector {
 	private long touchedMS = 0;
 	private float x, y, width, height;
 	
-	private Handler longTouchCatcher = new Handler();
+	private Handler longTouchCatcher = null;
 	private Runnable longTouchRun = new Runnable() {
 
 		@Override
@@ -45,6 +45,8 @@ public abstract class GestureDetector {
 				this.touchedX = touchX;
 				this.touchedY = touchY;
 				this.touchedMS = System.currentTimeMillis();
+				
+				if(longTouchCatcher == null) longTouchCatcher = new Handler();
 				
 				longTouchCatcher.postDelayed(longTouchRun, LONG_CLICK_TIME);
 				
