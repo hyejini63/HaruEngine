@@ -7,7 +7,7 @@ import javax.microedition.khronos.opengles.GL10;
 import android.content.Context;
 import bayaba.engine.lib.GameInfo;
 
-public abstract class GameMain
+public class GameMain
 {
 	public GL10 mGL = null; // OpenGL 객체
 	public Context MainContext;
@@ -19,11 +19,10 @@ public abstract class GameMain
 	{
 		MainContext = context; // 메인 컨텍스트를 변수에 보관한다.
 		gInfo = info; // 메인 액티비티에서 생성된 클래스를 가져온다.
-		
-		created();
 	}
-	public abstract void created();
-	public abstract void LoadGameData(); // SurfaceClass에서 OpenGL이 초기화되면 최초로 호출되는 함수    	
-	public abstract void PushButton( boolean push ); // OpenGL 화면에 터치가 발생하면 GLView에서 호출된다.    	
-	public abstract void DoGame(); // 1/60초에 한번씩 SurfaceClass에서 호출된다. 게임의 코어 부분을 넣는다.
+	
+	public void created(){}
+	public void LoadGameData(){} // SurfaceClass에서 OpenGL이 초기화되면 최초로 호출되는 함수    	
+	public void PushButton( boolean push ){} // OpenGL 화면에 터치가 발생하면 GLView에서 호출된다.    	
+	public void DoGame(){} // 1/60초에 한번씩 SurfaceClass에서 호출된다. 게임의 코어 부분을 넣는다.
 }
