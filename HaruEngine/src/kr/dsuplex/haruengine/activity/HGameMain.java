@@ -53,6 +53,11 @@ public class HGameMain extends GameMain {
 		plates.add(new HPlate(name, imgName, x, y));
 	}
 	
+	public void addPlate(String name, HPlate plate) {
+		plate.name = name;
+		plates.add(plate);
+	}
+	
 	public HSprite getSprite(String name) {
 		for(HSprite sprite : sprites)
 			if(sprite.name.equals(name))
