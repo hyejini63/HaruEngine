@@ -24,6 +24,9 @@ public class HPlate extends GameObject {
 		this.y = y;
 	}
 
+	public HPlate() {
+	}
+	
 	public void LoadGameData(ArrayList<HSprite> sprites) {
 		for(HSprite sprite : sprites)
 			if(imgName.equals(sprite.name))

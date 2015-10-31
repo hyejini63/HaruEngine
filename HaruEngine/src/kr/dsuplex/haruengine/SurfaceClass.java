@@ -51,7 +51,10 @@ public class SurfaceClass implements android.opengl.GLSurfaceView.Renderer
 		gl.glClear( GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT );
 		gl.glLoadIdentity();
 		gl.glScalef( gMain.gInfo.ScreenXsize / gMain.gInfo.ScreenX, gMain.gInfo.ScreenYsize / gMain.gInfo.ScreenY, 1.0f );
-		
-		gMain.DoGame();
+
+		synchronized ( gl )
+		{
+			gMain.DoGame();
+		}
 	}
 }
